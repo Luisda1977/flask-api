@@ -1,9 +1,21 @@
-from config import RUTA
+from flask import jsonify
+
 from . import app
+from .models import DBManager
 
 
-@app.route("/")
-def inicio():
-    return (f"La ruta del archivo de datos es: "
-            f"{app.config['RUTA']}<br>Secret Key "
-            f"{app.config['SECRET_KEY']}")
+"""
+verbos y formato de endpoints
+GET /movimientos-----> LISTAR movimientos
+
+"""
+
+RUTA = app.config.get("RUTA")   
+
+@app.route("/api/v1/movimientos/1")
+def listar_movimientos():
+    db = DBManager(RUTA)
+    sql = "SELECT * from movimientos ORDER BY fecha, id"
+    movimientos = db.consultaSQL(sql)
+    return jsonify(movimientos)
+
