@@ -5,8 +5,15 @@ from .models import DBManager
 
 
 """
-verbos y formato de endpoints
-GET /movimientos-----> LISTAR movimientos
+Verbos y formato de endpoints
+GET /movimientos ------> LISTAR movimientos
+POST /movimientos -----> CREAR movimiento
+GET /movimientos/1 ----> LEER el movimiento con ID 1
+POST /movimientos/1 ---> ACTUALIZAR el movimiento con ID 1 (sobreescribe todo el objeto)
+PUT /movimientos/1 ----> ACTUALIZAR el movimiento con ID 1 (sobreescriba parcialmente)
+DELETE /movimientos/1 -> ELIMINAR el movimiento con ID 1
+importante versionar los endpoint (son un contrato)
+/api/v1/...
 
 """
 
